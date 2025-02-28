@@ -1,0 +1,53 @@
+
+
+
+<!doctype html>
+<div class="questionnaire-wrapper">
+    <h1>Questionnaire</h1>
+  <center>
+   <form action="/questions" method="GET" class="search-form" >
+        <label>Search</label>
+        <input type="text" name="search" value="{{search}}" >
+        <button type="submit">Submit</button>
+    </form>
+  
+</center>
+</div>
+
+<form action="/questions" method="POST">
+    <label> Question</label>
+    <input type="text" name="question">
+    <label> Genre</label>
+    <input type="text" name="genre">
+    <label> Answers</label>
+    <input type="text" name="answers">
+
+      <button type="submit">Submit</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Question</th>
+            <th>Genre</th>
+            <th>Answers</th>
+        </tr>
+    </thead>
+    <tbody>
+    {{#each queries }}
+    <tr>
+        <td>{{question}}</td>
+        <td>{{genre}}</td>
+        <td>
+            <ul>
+            {{#each answers}}
+            <ul>
+                <li>{{this}}</li>
+            </ul>
+            {{/each}}
+            </ul>
+        </td>
+    </tr>
+{{/each}}   
+    </tbody>
+  </table>

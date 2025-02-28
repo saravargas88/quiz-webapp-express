@@ -1,0 +1,25 @@
+<!doctype html>
+<div class="quiz-wrapper">
+    <center>
+    <h2>Quiz</h2>
+    <p class="question-text">{{question}}</p> 
+    <form action="/quiz" method="POST" class="quiz-form">
+     <input type="text" name="answer" placeholder="Enter your answer..." value="{{answers}}" required>
+
+        <input type="hidden" name='id' value="{{id}}">
+        <button type="submit">Submit</button>
+    </form>
+
+    {{#if result}}
+    <p>{{result}}</p>  
+    <p>Your Answer: 
+    {{#each decoratedAnswers}}
+        {{{this}}}{{#unless @last}}, {{/unless}}  
+    {{/each}}
+</p>
+
+        {{/if}}
+        </center>
+</div>
+
+
