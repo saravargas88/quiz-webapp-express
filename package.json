@@ -8,8 +8,9 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "start": "node server.mjs"
+}
+,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nyu-csci-ua-0467-001-002-spring-2025/homework04-saravargas88.git"
