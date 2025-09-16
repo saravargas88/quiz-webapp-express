@@ -7,6 +7,8 @@ import { Query } from "./query.mjs";
 const app = express();
 const queries = [];
 
+app.use(express.static('public'));
+
 // ----- Helpers -----
 const decorate = (answer, correct) => {
   return correct
@@ -44,14 +46,14 @@ const basePath = path.dirname(url.fileURLToPath(import.meta.url));
 const publicPath = path.resolve(basePath, "../public");
 
 app.set("view engine", "hbs");
-app.set("views", path.resolve(basePath, "../views"));
+app.set("views", path.resolve(basePath, "./views"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(publicPath));
 
 // ----- Load Question Bank -----
 const questionBank = fs.readFileSync(
-  path.resolve(basePath, "../code-samples/question-bank.json"),
+  path.resolve(basePath, "./code-samples/question-bank.json"),
   "utf8"
 );
 JSON.parse(questionBank).forEach((x) => {
